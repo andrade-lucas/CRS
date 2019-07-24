@@ -30,9 +30,9 @@
 							class="img-circle" alt="Avatar"> <span>Admin</span> <i
 							class="icon-submenu lnr lnr-chevron-down"></i></a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><i class="lnr lnr-user"></i> <span>Meu Perfil</span></a></li>
+						<li><a [routerLink]="['/users/profile']"><i class="lnr lnr-user"></i> <span>Meu Perfil</span></a></li>
 						<li><a href="#"><i class="lnr lnr-cog"></i> <span>Configurações</span></a></li>
-						<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+						<li><a [routerLink]="['/logout']"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 					</ul>
 				</li>
 				<!-- <li>
@@ -48,15 +48,24 @@
 	<div class="sidebar-scroll">
 		<nav>
 			<ul class="nav">
-				<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a>
+        <li><a [routerLink]="['/']" routerLinkActive="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+        <li>
+					<a href="#subColleges" data-toggle="collapse" class="collapsed"><i class="fa fa-building"></i>
+						<span>Faculdade</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+					<div id="subColleges" class="collapse ">
+						<ul class="nav">
+							<li><a [routerLink]="['/colleges']" routerLinkActive="active">Lista</a></li>
+							<li><a [routerLink]="['/colleges/create']" routerLinkActive="active">Novo</a></li>
+						</ul>
+					</div>
 				</li>
 				<li>
-					<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i>
-						<span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-					<div id="subPages" class="collapse ">
+					<a href="#subUsers" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i>
+						<span>Usuários</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+					<div id="subUsers" class="collapse ">
 						<ul class="nav">
-							<li><a href="" class="">Perfil</a></li>
-							<li><a href="" class="">Login</a></li>
+							<li><a [routerLink]="['/users']" routerLinkActive="active">Lista</a></li>
+							<li><a [routerLink]="['/users/create']" routerLinkActive="active">Novo</a></li>
 						</ul>
 					</div>
 				</li>

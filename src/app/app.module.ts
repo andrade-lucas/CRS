@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { ResetPasswordPageComponent } from './reset-password-page/reset-password-page.component';
-import { SignupPageComponent } from './signup-page/signup-page.component';
-import { UsersPageComponent } from './users-page/users-page.component';
+import { LoginPageComponent } from './pages/account/login-page/login-page.component';
+import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
+import { SignupPageComponent } from './pages/account/signup-page/signup-page.component';
+import { UsersPageComponent } from './pages/college/users-page/users-page.component';
+import { FramePageComponent } from './pages/master/frame.page';
+import { DashboardPageComponent } from './pages/college/dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,13 @@ import { UsersPageComponent } from './users-page/users-page.component';
     LoginPageComponent,
     ResetPasswordPageComponent,
     SignupPageComponent,
-    UsersPageComponent
+    UsersPageComponent,
+    FramePageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

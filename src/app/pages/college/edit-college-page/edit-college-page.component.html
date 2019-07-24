@@ -4,33 +4,44 @@
             <div class="row">
                 <div class="col-md-6 text-left">
                     <h3>ClassRoom Space</h3>
-                    <p><small><a [routerLink]="['/']">Início</a> > Faculdades > Nova</small></p>
+                    <p><small><a [routerLink]="['/']">Início</a> > Faculdades > Editar</small></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a [routerLink]="['/colleges']" class="btn btn-primary btn-new"><i class="fa fa-chevron-left"></i> Voltar para Lista</a>
+                    <a [routerLink]="['/colleges']" class="btn btn-primary btn-new"><i class="fa fa-chevron-left"></i>
+                        Voltar para Lista</a>
                 </div>
             </div>
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3>Nova Faculdade</h3>
+                    <h3>Editar Faculdade</h3>
                 </div>
                 <div class="panel-body">
                     <form [formGroup]="form" *ngIf="!busy">
                         <div class="form-group col-md-6 margin-bottom-10">
                             <label for="FirstName">Nome</label>
-                            <input type="text" [ngClass]="{'uk-form-danger': (!form.controls.firstName.valid && !form.controls.firstName.pristine)}" id="FirstName" class="form-control" formControlName="firstName" placeholder="Nome...">
+                            <input type="text"
+                                [ngClass]="{'uk-form-danger': (!form.controls.firstName.valid && !form.controls.firstName.pristine)}"
+                                id="FirstName" class="form-control" formControlName="firstName" placeholder="Nome...">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="LastName">Segundo Nome</label>
-                            <input type="text" [ngClass]="{'uk-form-danger': (!form.controls.lastName.valid && !form.controls.lastName.pristine)}" id="LastName" class="form-control" formControlName="lastName" placeholder="Segundo nome...">
+                            <input type="text"
+                                [ngClass]="{'uk-form-danger': (!form.controls.lastName.valid && !form.controls.lastName.pristine)}"
+                                id="LastName" class="form-control" formControlName="lastName"
+                                placeholder="Segundo nome...">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Document">CNPJ</label>
-                            <input type="text" [ngClass]="{'uk-form-danger': (!form.controls.document.valid && !form.controls.document.pristine)}" maxlength="18" id="Document" class="form-control" formControlName="document" placeholder="CNPJ...">
+                            <input type="text"
+                                [ngClass]="{'uk-form-danger': (!form.controls.document.valid && !form.controls.document.pristine)}"
+                                maxlength="18" id="Document" class="form-control" formControlName="document"
+                                placeholder="CNPJ...">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Email">E-mail</label>
-                            <input type="email" [ngClass]="{'uk-form-danger': (!form.controls.email.valid && !form.controls.email.pristine)}" id="Email" class="form-control" formControlName="email" placeholder="E-mail...">
+                            <input type="email"
+                                [ngClass]="{'uk-form-danger': (!form.controls.email.valid && !form.controls.email.pristine)}"
+                                id="Email" class="form-control" formControlName="email" placeholder="E-mail...">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Phone">Telefone</label>
@@ -41,7 +52,8 @@
                             <input type="file" id="Image" class="form-control">
                         </div>
                         <div class="form-group text-right col-md-12">
-                            <button [disabled]="form.invalid" (click)="submit()" class="btn btn-success">Cadastrar</button>
+                            <button [disabled]="form.invalid" (click)="submit()"
+                                class="btn btn-success">Cadastrar</button>
                         </div>
                     </form>
                 </div>

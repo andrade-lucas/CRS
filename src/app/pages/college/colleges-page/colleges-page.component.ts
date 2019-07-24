@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { CollegeService } from 'src/app/services/college.service';
 import { Observable } from 'rxjs';
+import { getCollege } from 'src/app/models/getColleges.model';
 
 @Component({
   selector: 'app-colleges-page',
@@ -8,12 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./colleges-page.component.css']
 })
 export class CollegesPageComponent implements OnInit {
-  public colleges$: Observable<any[]>;
+  public colleges$: Observable<getCollege[]>;
 
-  constructor(private data: DataService) { }
+  constructor(private data: CollegeService) { }
 
   ngOnInit() {
-    this.colleges$ = this.data.getColleges();
+    this.colleges$ = this.data.get();
   }
 
 }

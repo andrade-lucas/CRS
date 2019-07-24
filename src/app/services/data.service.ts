@@ -7,18 +7,16 @@ import { User } from '../models/user.model';
 })
 
 export class DataService {
+  public url: String = 'https://localhost:5001';
+
   constructor(public httpClient: HttpClient) {
   }
 
   getUsers() {
-    return this.httpClient.get<User[]>('https://localhost:5001/v1/users');
+    return this.httpClient.get<User[]>(`${this.url}/v1/users`);
   }
 
   getUserById(id: Number) {
-    return this.httpClient.get<any>('https://localhost:5001/v1/users/' + id);
-  }
-
-  getColleges() {
-    return this.httpClient.get<any[]>('https://localhost:5001/v1/colleges');
+    return this.httpClient.get<User>(`${this.url}/v1/users/${id}`);
   }
 }

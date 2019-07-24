@@ -4,15 +4,24 @@
             <div class="row">
                 <div class="col-md-6 text-left">
                     <h3>ClassRoom Space</h3>
-                    <p><small><a href="#">Início</a> > Universidades</small></p>
+                    <p><small><a href="#">Início</a> > Faculdades</small></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a [routerLink]="['/colleges/create']" class="btn btn-success btn-new"><i class="fa fa-plus"></i> Novo Cadastro</a>
+                    <a [routerLink]="['/colleges/create']" class="btn btn-success btn-new"><i class="fa fa-plus"></i>
+                        Novo Cadastro</a>
                 </div>
             </div>
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3>Lista de Universidades</h3>
+                    <div class="col-md-6">
+                        <h3>Lista de Faculdades</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group margin-top-20">
+                            <input type="text" value="" class="form-control" placeholder="Nome, CNPJ...">
+                            <span class="input-group-btn"><a type="button" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</a></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped table-responsive table-hover">

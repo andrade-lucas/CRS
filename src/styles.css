@@ -1,3 +1,20 @@
 .btn-new {
     margin-top: 20px;
 }
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.uk-form-danger {
+    border-color: #f55549;
+    color: #f55549;
+}
+.uk-form-danger:focus {
+    border-color: #f55549;
+    color: #f55549;
+}

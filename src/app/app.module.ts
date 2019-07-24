@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,7 @@ import { FramePageComponent } from './pages/master/frame.page';
 import { DashboardPageComponent } from './pages/college/dashboard-page/dashboard-page.component';
 import { CollegesPageComponent } from './pages/college/colleges-page/colleges-page.component';
 import { CreateCollegePageComponent } from './pages/college/create-college-page/create-college-page.component';
+import { EditCollegePageComponent } from './pages/college/edit-college-page/edit-college-page.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,16 @@ import { CreateCollegePageComponent } from './pages/college/create-college-page/
     FramePageComponent,
     DashboardPageComponent,
     CollegesPageComponent,
-    CreateCollegePageComponent
+    CreateCollegePageComponent,
+    EditCollegePageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule
   ],
   providers: [],

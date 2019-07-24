@@ -32,7 +32,7 @@ const routes: Routes = [
     children: [
       {path: '', component: CollegesPageComponent},
       {path: 'create', component: CreateCollegePageComponent},
-      {path: 'edit', component: EditCollegePageComponent}
+      {path: 'edit/:id', component: EditCollegePageComponent}
     ]
   },
   {path: 'login', component: LoginPageComponent},

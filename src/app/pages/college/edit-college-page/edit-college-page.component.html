@@ -17,6 +17,7 @@
                 </div>
                 <div class="panel-body">
                     <form [formGroup]="form" *ngIf="!busy">
+                        <input type="hidden" value="{{ id }}" formControlName="id">
                         <div class="form-group col-md-6 margin-bottom-10">
                             <label for="FirstName">Nome</label>
                             <input type="text"
@@ -45,15 +46,15 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Phone">Telefone</label>
-                            <input type="text" id="Phone" class="form-control" placeholder="Telefone...">
+                            <input type="text" id="Phone" class="form-control" formControlName="phone" placeholder="Telefone...">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Image">Imagem</label>
-                            <input type="file" id="Image" class="form-control">
+                            <input type="file" id="Image" formControlName="image" class="form-control">
                         </div>
                         <div class="form-group text-right col-md-12">
                             <button [disabled]="form.invalid" (click)="submit()"
-                                class="btn btn-success">Cadastrar</button>
+                                class="btn btn-success">Confirmar</button>
                         </div>
                     </form>
                 </div>

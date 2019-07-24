@@ -26,14 +26,16 @@ export class CreateCollegePageComponent implements OnInit {
         Validators.required
       ])],
       document: ['', Validators.compose([
-        Validators.minLength(18),
+        Validators.minLength(14),
         Validators.maxLength(18),
         Validators.required
       ])],
       email: ['', Validators.compose([
         Validators.minLength(2),
         Validators.maxLength(160)
-      ])]
+      ])],
+      phone: [''],
+      image: ['']
     })
   }
 
@@ -47,11 +49,10 @@ export class CreateCollegePageComponent implements OnInit {
         this.busy = false;
         if (data.status) {
           this.toastr.success(data.message, 'Sucesso');
-          this.router.navigate(['/colleges'])
+          this.router.navigate(['/colleges']);
         }
-        else {
+        else
           this.toastr.error(data.message, 'Erro');
-        }
       },
       (err) => {
         console.log(err);

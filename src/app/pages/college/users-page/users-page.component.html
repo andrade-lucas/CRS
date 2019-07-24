@@ -36,7 +36,7 @@
                             <tr *ngFor="let user of users$ | async">
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
-                                <td>{{ user.status }}</td>
+                                <td>{{ user.status === 0 ? "Inativo" : "Ativo" }}</td>
                                 <td class="text-right">
                                     <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

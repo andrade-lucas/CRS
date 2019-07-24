@@ -18,6 +18,7 @@ import { DashboardPageComponent } from './pages/college/dashboard-page/dashboard
 import { CollegesPageComponent } from './pages/college/colleges-page/colleges-page.component';
 import { CreateCollegePageComponent } from './pages/college/create-college-page/create-college-page.component';
 import { EditCollegePageComponent } from './pages/college/edit-college-page/edit-college-page.component';
+import { DeleteConfirmationComponent } from './components/shared/delete-confirmation/delete-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditCollegePageComponent } from './pages/college/edit-college-page/edit
     DashboardPageComponent,
     CollegesPageComponent,
     CreateCollegePageComponent,
-    EditCollegePageComponent
+    EditCollegePageComponent,
+    DeleteConfirmationComponent
   ],
   imports: [
     BrowserModule,

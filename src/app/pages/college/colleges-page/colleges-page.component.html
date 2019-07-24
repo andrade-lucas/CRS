@@ -19,36 +19,41 @@
                     <div class="col-md-6">
                         <div class="input-group margin-top-20">
                             <input type="text" value="" class="form-control" placeholder="Nome, CNPJ...">
-                            <span class="input-group-btn"><a type="button" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</a></span>
+                            <span class="input-group-btn"><a type="button" class="btn btn-primary"><i
+                                        class="fa fa-search"></i> Filtrar</a></span>
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-responsive table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>CNPJ</th>
-                                <th>E-mail</th>
-                                <th>Telefone</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let college of colleges$ | async">
-                                <td>{{ college.name }}</td>
-                                <td>{{ college.document }}</td>
-                                <td>{{ college.email }}</td>
-                                <td>{{ college.phone }}</td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="col-md-12">
+                        <table class="table table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CNPJ</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let college of colleges$ | async">
+                                    <td>{{ college.name }}</td>
+                                    <td>{{ college.document }}</td>
+                                    <td>{{ college.email }}</td>
+                                    <td>{{ college.phone }}</td>
+                                    <td class="text-right">
+                                        <a [routerLink]="['/colleges/edit/', college.id]" class="btn btn-info"><i
+                                                class="fa fa-edit"></i></a> &nbsp;
+                                        <button data-toggle="modal" data-target="#confirmaDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<app-delete-confirmation></app-delete-confirmation>

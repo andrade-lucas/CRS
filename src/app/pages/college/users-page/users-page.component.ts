@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-page',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-page.component.css']
 })
 export class UsersPageComponent implements OnInit {
+  public users$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private data: Data) { }
 
   ngOnInit() {
+    this.users$ = this.data.getUsers();
   }
 
 }

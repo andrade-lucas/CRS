@@ -26,11 +26,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Lucas Andrade</td>
-                                <td>000.000.000-00</td>
-                                <td>lucas@example.com</td>
-                                <td>Ativo</td>
+                            <tr *ngFor="let user of users$ | async">
+                                <td>{{ user.FirstName }} {{ user.LastName }}</td>
+                                <td>{{ user.Document }}</td>
+                                <td>{{ user.Email }}</td>
+                                <td>{{ user.Status }}</td>
                                 <td class="text-right">
                                     <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

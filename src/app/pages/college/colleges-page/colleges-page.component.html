@@ -4,31 +4,33 @@
             <div class="row">
                 <div class="col-md-6 text-left">
                     <h3>ClassRoom Space</h3>
-                    <p><small><a href="#">Início</a> > Usuários</small></p>
+                    <p><small><a href="#">Início</a> > Universidades</small></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <button class="btn btn-success btn-new"><i class="fa fa-plus"></i> Novo Cadastro</button>
+                    <a [routerLink]="['/colleges/create']" class="btn btn-success btn-new"><i class="fa fa-plus"></i> Novo Cadastro</a>
                 </div>
             </div>
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3>Lista de Usuários</h3>
+                    <h3>Lista de Universidades</h3>
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped table-responsive table-hover">
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>CNPJ</th>
                                 <th>E-mail</th>
-                                <th>Status</th>
+                                <th>Telefone</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of users$ | async">
-                                <td>{{ user.name }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.status }}</td>
+                            <tr *ngFor="let college of colleges$ | async">
+                                <td>{{ college.name }}</td>
+                                <td>{{ college.document }}</td>
+                                <td>{{ college.email }}</td>
+                                <td>{{ college.phone }}</td>
                                 <td class="text-right">
                                     <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

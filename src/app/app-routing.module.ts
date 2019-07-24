@@ -6,6 +6,8 @@ import { UsersPageComponent } from './pages/college/users-page/users-page.compon
 import { SignupPageComponent } from './pages/account/signup-page/signup-page.component';
 import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
 import { DashboardPageComponent } from './pages/college/dashboard-page/dashboard-page.component';
+import { CollegesPageComponent } from './pages/college/colleges-page/colleges-page.component';
+import { CreateCollegePageComponent } from './pages/college/create-college-page/create-college-page.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,14 @@ const routes: Routes = [
     component: FramePageComponent,
     children: [
       {path: '', component: UsersPageComponent}
+    ]
+  },
+  {
+    path: 'colleges',
+    component: FramePageComponent,
+    children: [
+      {path: '', component: CollegesPageComponent},
+      {path: 'create', component: CreateCollegePageComponent}
     ]
   },
   {path: 'login', component: LoginPageComponent},

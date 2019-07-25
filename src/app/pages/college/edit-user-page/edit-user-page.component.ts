@@ -59,7 +59,16 @@ export class EditUserPageComponent implements OnInit {
     )
   }
 
-  submite() {
-    // this.service
+  submit() {
+    this.service.put(this.form.value).subscribe(
+      (data: any) => {
+        if (data.status) {
+          this.toastr.success(data.message, 'Sucesso');
+          this.router.navigate(['/users']);
+        }
+        else
+          this.toastr.error(data.message, 'Erro');
+      }
+    )
   }
 }

@@ -14,6 +14,9 @@ import { EditUserPageComponent } from './pages/college/edit-user-page/edit-user-
 import { CoursesPageComponent } from './pages/college/courses-page/courses-page.component';
 import { CreateCoursePageComponent } from './pages/college/create-course-page/create-course-page.component';
 import { EditCoursePageComponent } from './pages/college/edit-course-page/edit-course-page.component';
+import { ProfessorPageComponent } from './pages/college/professor-page/professor-page.component';
+import { CreateProfessorPageComponent } from './pages/college/create-professor-page/create-professor-page.component';
+import { EditProfessorPageComponent } from './pages/college/edit-professor-page/edit-professor-page.component';
 
 
 const routes: Routes = [
@@ -49,6 +52,15 @@ const routes: Routes = [
       {path: '', component: CoursesPageComponent},
       {path: 'create', component: CreateCoursePageComponent},
       {path: 'edit/:id', component: EditCoursePageComponent}
+    ]
+  },
+  {
+    path: 'professors',
+    component: FramePageComponent,
+    children: [
+      {path: '', component: ProfessorPageComponent},
+      {path: 'create', component: CreateProfessorPageComponent},
+      {path: 'edit/:id', component: EditProfessorPageComponent},
     ]
   },
   {path: 'login', component: LoginPageComponent},

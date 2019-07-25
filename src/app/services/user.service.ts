@@ -21,7 +21,15 @@ export class UserService {
     return this.httpClient.get<User>(`${this.url}/v1/users/${id}`);
   }
 
-  post(data: any) {
+  post(data: User) {
     return this.httpClient.post(`${this.url}/v1/users`, data);
+  }
+
+  put(data: User) {
+    return this.httpClient.put(`${this.url}/v1/users`, data);
+  }
+
+  delete(id: String) {
+    return this.httpClient.delete(`${this.url}/v1/users/${id}`);
   }
 }

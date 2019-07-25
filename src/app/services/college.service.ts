@@ -26,7 +26,7 @@ export class CollegeService {
     }
 
     put(data: any) {
-        return this.httpClient.put(`${this.url}/v1/colleges/${data.id}`, data);
+        return this.httpClient.put(`${this.url}/v1/colleges`, data);
     }
 
     delete(id: String) {

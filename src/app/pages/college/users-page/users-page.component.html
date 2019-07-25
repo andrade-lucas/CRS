@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-md-6 text-left">
                     <h3>ClassRoom Space</h3>
-                    <p><small><a href="#">Início</a> > Usuários</small></p>
+                    <p><small><a [routerLink]="['']">Início</a> > Usuários</small></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <button class="btn btn-success btn-new"><i class="fa fa-plus"></i> Novo Cadastro</button>
+                    <a [routerLink]="['/users/create']" class="btn btn-success btn-new"><i class="fa fa-plus"></i> Novo Cadastro</a>
                 </div>
             </div>
             <div class="panel panel-headline">
@@ -38,8 +38,8 @@
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.status === 0 ? "Inativo" : "Ativo" }}</td>
                                 <td class="text-right">
-                                    <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <a [routerLink]="['/users/edit/', user.id]" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
+                                    <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         </tbody>

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { getCollege } from '../models/getColleges.model';
+import { College } from '../models/college.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class CollegeService {
-    public url: String = 'https://localhost:5001';
+    public url: String = 'http://localhost:5000';
 
     constructor(public httpClient: HttpClient) {
     }
@@ -17,7 +18,7 @@ export class CollegeService {
     }
 
     getById(id: String) {
-        return this.httpClient.get<getCollege>(`${this.url}/v1/colleges/${id}`);
+        return this.httpClient.get<College>(`${this.url}/v1/colleges/${id}`);
     }
 
     post(data: any) {

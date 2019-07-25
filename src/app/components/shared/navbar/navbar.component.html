@@ -35,9 +35,6 @@
 						<li><a [routerLink]="['/logout']"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 					</ul>
 				</li>
-				<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
 			</ul>
 		</div>
 	</div>
@@ -51,7 +48,7 @@
         <li><a [routerLink]="['/']" routerLinkActive="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
         <li>
 					<a href="#subColleges" data-toggle="collapse" class="collapsed"><i class="fa fa-university"></i>
-						<span>Faculdade</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+						<span>Faculdades</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 					<div id="subColleges" class="collapse ">
 						<ul class="nav">
 							<li><a [routerLink]="['/colleges']" routerLinkActive="active">Lista</a></li>
@@ -68,7 +65,9 @@
 							<li><a [routerLink]="['/users/create']" routerLinkActive="active">Novo</a></li>
 						</ul>
 					</div>
-				</li>
+        </li>
+        <li><a [routerLink]="['/courses']" routerLinkActive="active"><i class="fa fa-graduation-cap"></i> <span>Cursos</span></a></li>
+        <li><a [routerLink]="['/professors']" routerLinkActive="active"><i class="fa fa-id-card"></i> <span>Professores</span></a></li>
 			</ul>
 		</nav>
 	</div>

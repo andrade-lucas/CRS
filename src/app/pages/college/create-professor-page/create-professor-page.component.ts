@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProfessorService } from 'src/app/services/professor.service';
+import { CourseService } from 'src/app/services/course.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { GetCourse } from 'src/app/models/getCourses.model';
 
 @Component({
   selector: 'app-create-professor-page',
@@ -6,10 +13,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-professor-page.component.css']
 })
 export class CreateProfessorPageComponent implements OnInit {
+  public form: FormGroup;
+  public courses$: Observable<GetCourse[]>;
 
-  constructor() { }
+  constructor(private router: Router, private service: ProfessorService, private courseService: CourseService,
+      private fb: FormBuilder, private toastr: ToastrService
+    ) {
+      this.courses$ = this.courseService.get();
+
+      this.form = this.fb.group({
+        firstName: ['', Validators.compose([
+          Validators.minLength(2),
+          Validators.maxLength(30),
+          Validators.required
+        ])],
+        lastName: ['', Validators.compose([
+          Validators.minLength(2),
+          Validators.maxLength(30),
+          Validators.required
+        ])],
+        document: ['', Validators.compose([
+          Validators.min(11),
+          Validators.maxLength(14),
+          Validators.required
+        ])],
+        email: ['', Validators.compose([
+          Validators.minLength(4),
+          Validators.maxLength(160),
+          Validators.required
+        ])],
+        phone: [''],
+        idCourse: ['', Validators.required],
+        status: ['', Validators.required]
+      });
+     }
 
   ngOnInit() {
   }
 
+  submit() {
+    this.service.post(this.form.value).subscribe(
+      (data: any) => {
+        if (data.status) {
+          this.toastr.success(data.message, 'Sucesso');
+          this.router.navigate(['/professors']);
+        }
+        else
+          this.toastr.error(data.message, 'Erro');
+      }
+    )
+  }
 }

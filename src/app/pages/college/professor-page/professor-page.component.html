@@ -41,7 +41,7 @@
                                         <td>{{ professor.email }}</td>
                                         <td>{{ professor.status === 0 ? "Inativo" : "Ativo" }}</td>
                                         <td class="text-right">
-                                            <a [routerLink]="['/professor/edit/', professor.id]" class="btn btn-info"><i
+                                            <a [routerLink]="['/professors/edit/', professor.id]" class="btn btn-info"><i
                                                     class="fa fa-edit"></i></a> &nbsp;
                                             <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </td>
@@ -54,4 +54,3 @@
             </div>
         </div>
     </div>
-    

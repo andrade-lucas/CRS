@@ -3,6 +3,8 @@ import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
 import { GetCourse } from 'src/app/models/getCourses.model';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material';
+import { DeleteConfirmationComponent } from 'src/app/components/shared/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-courses-page',
@@ -11,16 +13,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CoursesPageComponent implements OnInit {
   public courses$: Observable<GetCourse[]>;
+  public id: String;
 
-  constructor(private service: CourseService, private toastr: ToastrService) {
+  constructor(private service: CourseService, private toastr: ToastrService, public dialog: MatDialog) {
     this.courses$ = this.service.get();
    }
 
   ngOnInit() {
   }
 
-  delete(id: String) {
-    this.service.delete(id).subscribe(
+  openDialog(value: String) {
+    this.id = value;
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result)
+        this.delete();
+    })
+  }
+
+  delete() {
+    this.service.delete(this.id).subscribe(
       (data: any) => {
         if (data.status) {
           this.toastr.success(data.message, 'Sucesso');

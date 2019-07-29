@@ -15,21 +15,21 @@ export class CoursesPageComponent implements OnInit {
   public courses$: Observable<GetCourse[]>;
   public id: String;
 
-  constructor(private service: CourseService, private toastr: ToastrService, public dialog: MatDialog) {
+  constructor(private service: CourseService, private toastr: ToastrService) {
     this.courses$ = this.service.get();
    }
 
   ngOnInit() {
   }
 
-  openDialog(value: String) {
-    this.id = value;
-    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result)
-        this.delete();
-    })
-  }
+  // openDialog(value: String) {
+  //   this.id = value;
+  //   const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result)
+  //       this.delete();
+  //   })
+  //}
 
   delete() {
     this.service.delete(this.id).subscribe(

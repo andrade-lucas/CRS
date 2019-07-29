@@ -8,9 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DeleteConfirmationComponent implements OnInit {
 
-  constructor(
-    public dialogRef: MatDialogRef<DeleteConfirmationComponent>
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }

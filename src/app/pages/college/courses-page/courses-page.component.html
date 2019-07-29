@@ -39,7 +39,7 @@
                   <td class="text-right">
                     <a [routerLink]="['/courses/edit/', course.id]" class="btn btn-info"><i
                         class="fa fa-edit"></i></a> &nbsp;
-                    <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i
+                    <button mat-button (click)="openDialog(course.id)" class="btn btn-danger"><i
                         class="fa fa-trash"></i></button>
                   </td>
                 </tr>

@@ -10,8 +10,8 @@
       </div>
       <div class="modal-footer">
         <div class="text-center">
-          <button (click)="delete(id)" type="button" class="btn btn-danger">Deletar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button mat-button [mat-dialog-close]="true" type="button" class="btn btn-danger">Deletar</button>
+          <button mat-button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>

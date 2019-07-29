@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-delete-confirmation',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-confirmation.component.css']
 })
 export class DeleteConfirmationComponent implements OnInit {
+  @Input() public id: String;
+  @Input() public description: String;
 
   constructor() { }
 

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
 import { GetCourse } from 'src/app/models/getCourses.model';
-import { getCollege } from 'src/app/models/getColleges.model';
-import { CollegeService } from 'src/app/services/college.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-courses-page',
@@ -13,11 +12,23 @@ import { CollegeService } from 'src/app/services/college.service';
 export class CoursesPageComponent implements OnInit {
   public courses$: Observable<GetCourse[]>;
 
-  constructor(private service: CourseService) {
+  constructor(private service: CourseService, private toastr: ToastrService) {
     this.courses$ = this.service.get();
    }
 
   ngOnInit() {
   }
 
+  delete(id: String) {
+    this.service.delete(id).subscribe(
+      (data: any) => {
+        if (data.status) {
+          this.toastr.success(data.message, 'Sucesso');
+          this.ngOnInit();
+        }
+        else
+          this.toastr.error(data.message, 'Erro');
+      }
+    )
+  }
 }

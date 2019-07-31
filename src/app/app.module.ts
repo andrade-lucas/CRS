@@ -32,6 +32,7 @@ import { EditProfessorPageComponent } from './pages/college/edit-professor-page/
 import { EquipmentsPageComponent } from './pages/college/equipments-page/equipments-page.component';
 import { CreateEquipmentsPageComponent } from './pages/college/create-equipments-page/create-equipments-page.component';
 import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-page/edit-equipments-page.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-pag
     EditProfessorPageComponent,
     EquipmentsPageComponent,
     CreateEquipmentsPageComponent,
-    EditEquipmentsPageComponent
+    EditEquipmentsPageComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

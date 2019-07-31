@@ -8,14 +8,21 @@
             <div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
             <p class="lead">Faça login na sua conta</p>
           </div>
-          <form class="form-auth-small" [formGroup]="form">
+
+          <app-loading *ngIf="busy"></app-loading>
+
+          <form class="form-auth-small" [formGroup]="form" *ngIf="!busy">
             <div class="form-group">
               <label for="signin-email" class="control-label sr-only">E-mail</label>
-              <input type="email" class="form-control" formControlName="email" placeholder="E-mail">
+              <input type="email" maxlength="160"
+                [ngClass]="{'uk-form-danger': (form.controls.email.invalid && !form.controls.email.pristine)}"
+                class="form-control" formControlName="email" placeholder="E-mail">
             </div>
             <div class="form-group">
               <label for="signin-password" class="control-label sr-only">Senha</label>
-              <input type="password" class="form-control" formControlName="password" placeholder="Senha">
+              <input type="password" maxlength="30"
+                [ngClass]="{'uk-form-danger': (form.controls.password.invalid && !form.controls.password.pristine)}"
+                class="form-control" formControlName="password" placeholder="Senha">
             </div>
             <div class="form-group clearfix">
               <label class="fancy-checkbox element-left">
@@ -23,12 +30,13 @@
                 <span>Lembrar-se de mim</span>
               </label>
             </div>
+            <button (click)="submit()" [disabled]="!form.valid" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+            <a [routerLink]="['/signup']" class="btn btn-default btn-lg btn-block">REGISTRE-SE</a>
+            <div class="bottom">
+              <span class="helper-text"><i class="fa fa-lock"></i> <a [routerLink]="['/reset-password']">Esqueceu a
+                  senha?</a></span>
+            </div>
           </form>
-          <button (click)="submit()" [disabled]="!form.valid" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-          <a [routerLink]="['/signup']" class="btn btn-default btn-lg btn-block">REGISTRE-SE</a>
-          <div class="bottom">
-            <span class="helper-text"><i class="fa fa-lock"></i> <a [routerLink]="['/reset-password']">Esqueceu a senha?</a></span>
-          </div>
         </div>
       </div>
       <div class="right">

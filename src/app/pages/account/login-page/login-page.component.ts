@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { delay } from 'q';
 import { Router } from '@angular/router';
+import { CustomValidator } from 'src/app/validators/custom.validator';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-login-page',
@@ -19,7 +21,8 @@ export class LoginPageComponent implements OnInit {
       email: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(160),
-        Validators.required
+        Validators.required,
+        CustomValidator.EmailValidator
       ])],
       password: ['', Validators.compose([
         Validators.minLength(6),
@@ -30,15 +33,15 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    const token = localStorage.getItem('crs.token');
+    const token = Security.getToken();
     if (token) {
       // this.service.refreshToken().subscribe(
       //   (data: any) => {
-      //     if (data.authenticated) {
+      //     if (data.status) {
       //       localStorage.setItem('crs.token', data.accessToken);
       //     }
       //     else
-      //       this.toastr.error(data.message, "Erro ao autenticar");
+      //       this.toastr.error(data.message, 'Erro');
       //   },
       //   (err) => {
       //     localStorage.clear();
@@ -52,14 +55,18 @@ export class LoginPageComponent implements OnInit {
     this.service.post(this.form.value).subscribe(
       (data: any) => {
         this.busy = false;
-        if (data.authenticated) {
-          localStorage.setItem('crs.token', data.accessToken);
+        if (data.status) {
           this.toastr.success(data.message, 'Sucesso');
-          this.router.navigate(['/']);
+          this.setUser(data.user.data, data.accessToken)
         }
         else
-          this.toastr.error(data.message, "Erro ao autenticar");
+          this.toastr.error(data.message, 'Erro');
       }
     )
+  }
+
+  setUser(user, token) {
+    Security.set(user, token);
+    this.router.navigate(['/']);
   }
 }

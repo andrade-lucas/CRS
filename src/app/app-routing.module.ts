@@ -20,11 +20,13 @@ import { EditProfessorPageComponent } from './pages/college/edit-professor-page/
 import { EquipmentsPageComponent } from './pages/college/equipments-page/equipments-page.component';
 import { CreateEquipmentsPageComponent } from './pages/college/create-equipments-page/create-equipments-page.component';
 import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-page/edit-equipments-page.component';
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: DashboardPageComponent}
@@ -32,6 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: UsersPageComponent},
@@ -41,6 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'colleges',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: CollegesPageComponent},
@@ -50,6 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'courses',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: CoursesPageComponent},
@@ -59,6 +64,7 @@ const routes: Routes = [
   },
   {
     path: 'professors',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: ProfessorPageComponent},
@@ -68,6 +74,7 @@ const routes: Routes = [
   },
   {
     path: 'equipments',
+    canActivate: [AuthService],
     component: FramePageComponent,
     children: [
       {path: '', component: EquipmentsPageComponent},

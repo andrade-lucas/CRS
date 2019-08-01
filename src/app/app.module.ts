@@ -33,9 +33,11 @@ import { EquipmentsPageComponent } from './pages/college/equipments-page/equipme
 import { CreateEquipmentsPageComponent } from './pages/college/create-equipments-page/create-equipments-page.component';
 import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-page/edit-equipments-page.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { MaskDirective } from './directives/mask.directive';
 
 @NgModule({
   declarations: [
+    MaskDirective,
     AppComponent,
     NavbarComponent,
     FooterComponent,

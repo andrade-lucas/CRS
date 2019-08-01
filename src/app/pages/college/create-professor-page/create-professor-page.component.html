@@ -30,11 +30,11 @@
                       </div>
                       <div class="form-group col-md-3">
                           <label for="Document">CPF</label>
-                          <input type="text" [ngClass]="{'uk-form-danger': (!form.controls.document.valid && !form.controls.document.pristine)}" id="Document" class="form-control" formControlName="document" placeholder="CPF...">
+                          <input type="text" mask="###.###.###-##" maxlength="14" [ngClass]="{'uk-form-danger': (!form.controls.document.valid && !form.controls.document.pristine)}" id="Document" class="form-control" formControlName="document" placeholder="CPF...">
                       </div>
                       <div class="form-group col-md-3">
                           <label for="Phone">Telefone</label>
-                          <input type="text" [ngClass]="{'uk-form-danger': (!form.controls.phone.valid && !form.controls.phone.pristine)}" id="Phone" class="form-control" formControlName="phone" placeholder="Telefone...">
+                          <input type="text" mask="(##)# ####-####" [ngClass]="{'uk-form-danger': (!form.controls.phone.valid && !form.controls.phone.pristine)}" id="Phone" class="form-control" formControlName="phone" placeholder="Telefone...">
                       </div>
                       <div class="form-group col-md-6">
                           <label for="IdCourse">Curso</label>

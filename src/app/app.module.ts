@@ -34,6 +34,16 @@ import { CreateEquipmentsPageComponent } from './pages/college/create-equipments
 import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-page/edit-equipments-page.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { MaskDirective } from './directives/mask.directive';
+import { AuthService } from './services/auth.service';
+import { CollegeService } from './services/college.service';
+import { CourseService } from './services/course.service';
+import { EquipmentService } from './services/equipment.service';
+import { ProfessorService } from './services/professor.service';
+import { UserService } from './services/user.service';
+import { BlockPageComponent } from './pages/college/block-page/block-page.component';
+import { CreateBlockPageComponent } from './pages/college/create-block-page/create-block-page.component';
+import { EditBlockPageComponent } from './pages/college/edit-block-page/edit-block-page.component';
+import { UserProfilePageComponent } from './pages/account/user-profile-page/user-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +72,11 @@ import { MaskDirective } from './directives/mask.directive';
     EquipmentsPageComponent,
     CreateEquipmentsPageComponent,
     EditEquipmentsPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    BlockPageComponent,
+    CreateBlockPageComponent,
+    EditBlockPageComponent,
+    UserProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +89,8 @@ import { MaskDirective } from './directives/mask.directive';
     MatDialogModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [AuthService, CollegeService, CourseService, EquipmentService, ProfessorService, 
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

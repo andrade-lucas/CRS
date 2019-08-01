@@ -16,6 +16,9 @@
           <h3>Editar Curso</h3>
         </div>
         <div class="panel-body">
+
+          <app-loading *ngIf="busy"></app-loading>
+
           <form [formGroup]="form" *ngIf="!busy">
             <input type="hidden" formControlName="id">
             <div class="form-group col-md-6 margin-bottom-10">

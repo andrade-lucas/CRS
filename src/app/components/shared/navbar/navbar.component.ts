@@ -13,10 +13,10 @@ export class NavbarComponent implements OnInit {
   public user: UserAuth;
 
   constructor(private router: Router, private toastr: ToastrService) { 
+    this.user = Security.getUser();
   }
 
   ngOnInit() {
-    this.user = Security.getUser();
   }
 
   logout() {

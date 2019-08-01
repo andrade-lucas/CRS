@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CollegeService } from 'src/app/services/college.service';
 import { ToastrService } from 'ngx-toastr';
+import { CustomValidator } from 'src/app/validators/custom.validator';
 
 @Component({
   selector: 'app-create-college-page',
@@ -26,13 +27,16 @@ export class CreateCollegePageComponent implements OnInit {
         Validators.required
       ])],
       document: ['', Validators.compose([
-        Validators.minLength(14),
+        Validators.minLength(18),
         Validators.maxLength(18),
+        CustomValidator.isCnpj(),
         Validators.required
       ])],
       email: ['', Validators.compose([
         Validators.minLength(2),
-        Validators.maxLength(160)
+        Validators.maxLength(160),
+        CustomValidator.EmailValidator,
+        Validators.required
       ])],
       phone: [''],
       image: ['']
@@ -52,11 +56,7 @@ export class CreateCollegePageComponent implements OnInit {
           this.router.navigate(['/colleges']);
         }
         else
-          this.toastr.error(data.message, 'Erro');
-      },
-      (err) => {
-        console.log(err);
-        this.busy = false;
+          this.toastr.error(data.message + data.Notifications, 'Erro');
       }
     )
   }

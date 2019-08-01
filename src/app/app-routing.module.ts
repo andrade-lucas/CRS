@@ -21,6 +21,10 @@ import { EquipmentsPageComponent } from './pages/college/equipments-page/equipme
 import { CreateEquipmentsPageComponent } from './pages/college/create-equipments-page/create-equipments-page.component';
 import { EditEquipmentsPageComponent } from './pages/college/edit-equipments-page/edit-equipments-page.component';
 import { AuthService } from './services/auth.service';
+import { BlockPageComponent } from './pages/college/block-page/block-page.component';
+import { CreateBlockPageComponent } from './pages/college/create-block-page/create-block-page.component';
+import { EditBlockPageComponent } from './pages/college/edit-block-page/edit-block-page.component';
+import { UserProfilePageComponent } from './pages/account/user-profile-page/user-profile-page.component';
 
 
 const routes: Routes = [
@@ -39,7 +43,8 @@ const routes: Routes = [
     children: [
       {path: '', component: UsersPageComponent},
       {path: 'create', component: CreateUserPageComponent},
-      {path: 'edit/:id', component: EditUserPageComponent}
+      {path: 'edit/:id', component: EditUserPageComponent},
+      {path: 'profile/:id', component: UserProfilePageComponent}
     ]
   },
   {
@@ -80,6 +85,16 @@ const routes: Routes = [
       {path: '', component: EquipmentsPageComponent},
       {path: 'create', component: CreateEquipmentsPageComponent},
       {path: 'edit/:id', component: EditEquipmentsPageComponent}
+    ]
+  },
+  {
+    path: 'blocks',
+    canActivate: [AuthService],
+    component: FramePageComponent,
+    children: [
+      {path: '', component: BlockPageComponent},
+      {path: 'create', component: CreateBlockPageComponent},
+      {path: 'edit/:id', component: EditBlockPageComponent}
     ]
   },
   {path: 'login', component: LoginPageComponent},

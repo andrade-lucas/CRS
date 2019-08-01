@@ -24,7 +24,7 @@ export class AuthService implements CanActivate {
   }
 
   public post(data: User) {
-    return this.httpClient.post(`${AppHeader.url}/v1/auth/login`, data);
+    return this.httpClient.post(`${AppHeader.url}/auth/login`, data);
   }
 
   public refreshToken() {

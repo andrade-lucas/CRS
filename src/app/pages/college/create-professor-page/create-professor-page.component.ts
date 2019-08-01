@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { GetCourse } from 'src/app/models/getCourses.model';
+import { CustomValidator } from 'src/app/validators/custom.validator';
 
 @Component({
   selector: 'app-create-professor-page',
@@ -33,14 +34,16 @@ export class CreateProfessorPageComponent implements OnInit {
           Validators.required
         ])],
         document: ['', Validators.compose([
-          Validators.min(11),
+          Validators.min(14),
           Validators.maxLength(14),
-          Validators.required
+          Validators.required,
+          CustomValidator.isCpf()
         ])],
         email: ['', Validators.compose([
           Validators.minLength(4),
           Validators.maxLength(160),
-          Validators.required
+          Validators.required,
+          CustomValidator.EmailValidator
         ])],
         phone: [''],
         idCourse: ['', Validators.required],

@@ -21,10 +21,5 @@ export class ProfessorPageComponent implements OnInit {
 
   delete(id: string) {
     this.dialog.confirmThis(this.service, id);
-    this.refresh();
-  }
-
-  private refresh() {
-    this.professors$ = this.service.get();
   }
 }

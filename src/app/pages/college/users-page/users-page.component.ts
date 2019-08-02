@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import { GetUsers } from 'src/app/models/getUsers.model';
+import { ConfirmDialogService } from 'src/app/services/confirmDialog.service';
 
 @Component({
   selector: 'app-users-page',
@@ -11,10 +12,14 @@ import { GetUsers } from 'src/app/models/getUsers.model';
 export class UsersPageComponent implements OnInit {
   public users$: Observable<GetUsers[]>;
 
-  constructor(private data: UserService) { }
-
-  ngOnInit() {
-    this.users$ = this.data.get();
+  constructor(private service: UserService, private dialog: ConfirmDialogService) { 
+    this.users$ = this.service.get();
   }
 
+  ngOnInit() {
+  }
+
+  delete(id: string) {
+    this.dialog.confirmThis(this.service, id);
+  }
 }

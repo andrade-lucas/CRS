@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -13,12 +13,12 @@ export class ConfirmDialogService {
 
     constructor(private toastr: ToastrService) { }
 
-    confirmThis(service: any, id: string) {
+    public confirmThis(service: any, id: string) {
         this.service = service;
         this.id = id;
     }
 
-    confirm() {
+    public confirm() {
         this.service.delete(this.id).subscribe(
             (data: any) => {
                 if (data.status) {
@@ -28,9 +28,5 @@ export class ConfirmDialogService {
                     this.toastr.error(data.message, 'Erro');
             }
         )
-    }
-
-    getMessage(): Observable<any> {
-        return this.subject.asObservable();
     }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
 import { GetCourse } from 'src/app/models/getCourses.model';
-import { ToastrService } from 'ngx-toastr';
+import { ConfirmDialogService } from 'src/app/services/confirmDialog.service';
 
 @Component({
   selector: 'app-courses-page',
@@ -13,23 +13,14 @@ export class CoursesPageComponent implements OnInit {
   public courses$: Observable<GetCourse[]>;
   public id: String;
 
-  constructor(private service: CourseService, private toastr: ToastrService) {
+  constructor(private service: CourseService, private dialog: ConfirmDialogService) {
     this.courses$ = this.service.get();
    }
 
   ngOnInit() {
   }
 
-  delete() {
-    this.service.delete(this.id).subscribe(
-      (data: any) => {
-        if (data.status) {
-          this.toastr.success(data.message, 'Sucesso');
-          this.ngOnInit();
-        }
-        else
-          this.toastr.error(data.message, 'Erro');
-      }
-    )
+  delete(id: string) {
+    this.dialog.confirmThis(this.service, id);
   }
 }

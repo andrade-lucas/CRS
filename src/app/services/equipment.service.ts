@@ -21,11 +21,15 @@ export class EquipmentService {
     return this.httpClient.get<Equipment>(`${AppHeader.url}/equipments/${id}`, { headers: AppHeader.composeHeader() });
   }
 
-  post (data: Equipment) {
+  post(data: Equipment) {
     return this.httpClient.post(`${AppHeader.url}/equipments`, data, { headers: AppHeader.composeHeader() });
   }
 
-  put (data: Equipment) {
+  put(data: Equipment) {
     return this.httpClient.put(`${AppHeader.url}/equipments`, data, { headers: AppHeader.composeHeader() });
+  }
+
+  delete(id: string) {
+    return this.httpClient.delete(`${AppHeader.url}/equipments/${id}`, { headers: AppHeader.composeHeader() });
   }
 }

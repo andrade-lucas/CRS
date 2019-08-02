@@ -48,7 +48,7 @@
                                     <td class="text-right">
                                         <a [routerLink]="['/colleges/edit/', college.id]" class="btn btn-info"><i
                                                 class="fa fa-edit"></i></a> &nbsp;
-                                        <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button (click)="college.id" data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>

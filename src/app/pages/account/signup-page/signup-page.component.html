@@ -8,29 +8,32 @@
             <div class="content">
                 <h1 class="sr-only">ClassRoom Space</h1>
                 <div class="user text-center">
-                    <img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
+                    <img src="{{ imgURL != null ? imgURL : imageSrc }}" class="img-circle img-signup" alt="Avatar">
                 </div>
-                <form action="">
+                <form [formGroup]="form">
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Nome...">
+                        <input [ngClass]="{'uk-form-danger': form.controls.firstName.invalid && !form.controls.firstName.pristine}" type="text" class="form-control" formControlName="firstName" placeholder="Nome...">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Sobrenome...">
+                        <input [ngClass]="{'uk-form-danger': form.controls.lastName.invalid && !form.controls.lastName.pristine}" type="text" class="form-control" fromControlName="lastName" placeholder="Sobrenome...">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="CPF...">
+                        <input [ngClass]="{'uk-form-danger': form.controls.document.invalid && !form.controls.document.pristine}" mask="###.###.###-##" type="text" class="form-control" formControlName="document" placeholder="CPF...">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="email" class="form-control" placeholder="E-mail...">
+                        <input [ngClass]="{'uk-form-danger': form.controls.email.invalid && !form.controls.email.pristine}" type="email" class="form-control" formControlName="email" placeholder="E-mail...">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="password" class="form-control" placeholder="Senha...">
+                        <input [ngClass]="{'uk-form-danger': form.controls.password.invalid && !form.controls.password.pristine}" type="password" class="form-control" formControlName="password" placeholder="Senha...">
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Telefone...">
+                        <input mask="(##) # ####-####" type="text" class="form-control" formControlName="phone" placeholder="Telefone...">
                     </div>
                     <div class="form-group col-md-12">
-                        <input type="file" class="form-control">
+                        <input (change)="onImageSelected($event)" type="file" formControlName="image" class="form-control">
+                    </div>
+                    <div class="form-group col-md-12 text-right">
+                        <button [disabled]="form.invalid" (click)="submit()" type="submit" class="btn btn-success btn-block">Cadastrar</button>
                     </div>
                 </form>
             </div>

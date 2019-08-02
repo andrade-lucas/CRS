@@ -39,7 +39,7 @@
                                 <td>{{ user.status === 0 ? "Inativo" : "Ativo" }}</td>
                                 <td class="text-right">
                                     <a [routerLink]="['/users/edit/', user.id]" class="btn btn-info"><i class="fa fa-edit"></i></a> &nbsp;
-                                    <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button (click)="delete(user.id)" data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         </tbody>

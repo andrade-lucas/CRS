@@ -3,8 +3,6 @@ import { CourseService } from 'src/app/services/course.service';
 import { Observable } from 'rxjs';
 import { GetCourse } from 'src/app/models/getCourses.model';
 import { ToastrService } from 'ngx-toastr';
-import { MatDialog } from '@angular/material';
-import { DeleteConfirmationComponent } from 'src/app/components/shared/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-courses-page',
@@ -21,15 +19,6 @@ export class CoursesPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // openDialog(value: String) {
-  //   this.id = value;
-  //   const dialogRef = this.dialog.open(DeleteConfirmationComponent);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result)
-  //       this.delete();
-  //   })
-  //}
 
   delete() {
     this.service.delete(this.id).subscribe(

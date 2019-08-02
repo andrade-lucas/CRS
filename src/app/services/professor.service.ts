@@ -28,4 +28,8 @@ export class ProfessorService {
     put(data: Professor) {
         return this.httpClient.put(`${AppHeader.url}/professors`, data, { headers: AppHeader.composeHeader() });
     }
+
+    delete(id: string) {
+        return this.httpClient.delete(`${AppHeader.url}/professors/${id}`, { headers: AppHeader.composeHeader() });
+    }
 }

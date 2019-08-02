@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ConfirmDialogService } from 'src/app/services/confirmDialog.service';
 
 @Component({
   selector: 'app-delete-confirmation',
@@ -7,10 +7,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./delete-confirmation.component.css']
 })
 export class DeleteConfirmationComponent implements OnInit {
+  public message: any;
 
-  constructor() { }
+  constructor(private service: ConfirmDialogService) { }
 
   ngOnInit() {
   }
 
+  confirm() {
+    this.service.confirm();
+  }
 }

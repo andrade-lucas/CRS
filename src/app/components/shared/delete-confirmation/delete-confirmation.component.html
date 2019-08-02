@@ -1,4 +1,4 @@
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmation"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer">
         <div class="text-center">
-          <button [mat-dialog-close]="true" type="button" class="btn btn-danger">Deletar</button>
+          <button (click)="confirm()" type="button" class="btn btn-danger" data-dismiss="modal">Deletar</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
       </div>

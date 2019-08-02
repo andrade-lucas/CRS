@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +38,7 @@ import { CourseService } from './services/course.service';
 import { EquipmentService } from './services/equipment.service';
 import { ProfessorService } from './services/professor.service';
 import { UserService } from './services/user.service';
+import { ConfirmDialogService } from './services/confirmDialog.service';
 import { BlockPageComponent } from './pages/college/block-page/block-page.component';
 import { CreateBlockPageComponent } from './pages/college/create-block-page/create-block-page.component';
 import { EditBlockPageComponent } from './pages/college/edit-block-page/edit-block-page.component';
@@ -85,12 +84,10 @@ import { UserProfilePageComponent } from './pages/account/user-profile-page/user
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AppRoutingModule,
-    MatDialogModule,
-    MatButtonModule
+    AppRoutingModule
   ],
   providers: [AuthService, CollegeService, CourseService, EquipmentService, ProfessorService, 
-    UserService],
+    UserService, ConfirmDialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

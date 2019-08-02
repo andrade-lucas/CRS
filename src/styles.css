@@ -21,3 +21,16 @@
 .delete-icon-size {
   font-size: 60px;
 }
+
+/* image */
+.shower-selected-image {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 100px;
+  max-height: 170px;
+  margin: auto;
+  text-align: center;
+}
+.image-full {
+  width: 100%;
+  height: 100%;
+}

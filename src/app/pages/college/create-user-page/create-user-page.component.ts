@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-create-user-page',
@@ -11,6 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateUserPageComponent implements OnInit {
   public form: FormGroup;
+  public imageSrc = 'https://kprofiles.com/wp-content/uploads/2019/04/Jungah-Marriage.png';
+  imgURL: any;
 
   constructor(private router: Router, private service: UserService, private fb: FormBuilder, private toastr: ToastrService) {
     this.form = this.fb.group({
@@ -46,6 +49,20 @@ export class CreateUserPageComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  onImageSelected(event) {
+    const file = event.target.files[0];
+    var mimeType = file.type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.toastr.error('Por favor, selecione um arquivo de imagem', 'Formato Incorreto');
+      return;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    }
   }
 
   submit() {
